@@ -30,9 +30,9 @@ production:
     encoding: unicode
     pool: 5
     
-    database: mysite_i0d9
-    username: mysite_i0d9_user
-    password: <%= ENV['MYSITE_DATABASE_PASSWORD'] %>
+    # database: mysite_i0d9
+    # username: mysite_i0d9_user
+    # password: <%= ENV['MYSITE_DATABASE_PASSWORD'] %>
     url: <%= ENV['DATABASE_URL'] %>
     
   cache:
