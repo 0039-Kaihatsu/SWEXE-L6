@@ -32,7 +32,8 @@ production:
     database: mysite_i0d9
     username: mysite_i0d9_user
     password: <%= ENV['MYSITE_DATABASE_PASSWORD'] %>
-    url: <%= ENV['DATABASE_URL'] %>  # ここは教材指示に従って残す
+    url: <%= ENV['DATABASE_URL'] %>  
+    # ここは教材指示に従って残す
 
     
   cache:
