@@ -1,0 +1,9 @@
+<h1>商品登録</h1>
+
+<%= form_with model: @product, local: true do |f| %>
+  <p>商品名: <%= f.text_field :name %></p>
+  <p>価格: <%= f.number_field :price %></p>
+  <p><%= f.submit "登録" %></p>
+<% end %>
+
+<p><%= link_to "戻る", products_path %></p>

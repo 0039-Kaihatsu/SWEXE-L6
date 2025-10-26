@@ -1,0 +1,34 @@
+<h1>ショッピングカート</h1>
+
+<% if @cart.cart_items.any? %>
+  <table>
+    <tr>
+      <th>商品名</th>
+      <th>価格</th>
+      <th>数量</th>
+      <th>小計</th>
+      <th></th>
+    </tr>
+    <% total = 0 %>
+    <% @cart.cart_items.each do |item| %>
+      <tr>
+        <td><%= item.product.name %></td>
+        <td><%= item.product.price %>円</td>
+        <td><%= item.qty %></td>
+        <td><%= item.total_price %>円</td>
+        <td><%= button_to "削除", cartitem_path(item),
+        method: :delete,
+        form: { data: { turbo: false } },
+        data: { confirm: "削除しますか？" } %>
+        </td>
+      </tr>
+      <% total += item.total_price %>
+    <% end %>
+  </table>
+
+  <h3>合計金額: <%= total %>円</h3>
+<% else %>
+  <p>カートに商品はありません。</p>
+<% end %>
+
+<p><%= link_to "商品一覧に戻る", products_path %></p>

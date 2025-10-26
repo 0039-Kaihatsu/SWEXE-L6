@@ -1,0 +1,25 @@
+<h1>商品一覧</h1>
+
+<p><%= link_to "商品登録", new_product_path %></p>
+
+<table>
+  <tr>
+    <th>商品名</th>
+    <th>価格</th>
+    <th></th>
+    <th></th>
+  </tr>
+  <% @products.each do |p| %>
+    <tr>
+      <td><%= p.name %></td>
+      <td><%= p.price %>円</td>
+      <td><%= button_to "カートに追加", cartitems_path(product_id: p.id), method: :post %></td>
+      <td><%= button_to "削除", product_path(p),
+            method: :delete,
+            data: { confirm: "削除しますか？", turbo: false } %>
+      </td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "カートを見る", cart_path(current_cart) %></p>
